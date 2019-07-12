@@ -1,11 +1,13 @@
 class CocktailsController < ApplicationController
   def index
+    @disable_nav = true
     @cocktails = Cocktail.all
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
+    @review = Review.new
   end
 
   def new

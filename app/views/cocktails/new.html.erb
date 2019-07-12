@@ -1,3 +1,17 @@
-<h1>Create your own cocktail</h1>
+<div class="container">
 
-<%= render 'form', cocktail: @cocktail %>
+  <h1>Create your own cocktail</h1>
+
+  <div class="new-cocktail">
+
+    <div class="new-form">
+    <%= render 'form', cocktail: @cocktail %>
+    </div>
+
+    <div>
+    <img src="<%= image_path('')%>" alt="">
+    </div>
+
+  </div>
+
+</div>

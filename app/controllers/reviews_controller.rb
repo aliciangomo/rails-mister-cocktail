@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(params.require(:review).permit(:content, :rating, :cocktail_id))
+    @review = Review.new(review_params)
     @cocktail = Cocktail.find(params[:cocktail_id])
     @review.cocktail = @cocktail
     if @review.save
@@ -11,5 +11,11 @@ class ReviewsController < ApplicationController
     else
       render "cocktails/show"
     end
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:content, :rating)
   end
 end

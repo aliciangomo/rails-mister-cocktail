@@ -9,7 +9,7 @@
 <div class="cards">
   <% @cocktails.each do |cocktail| %>
   <div class="cocktail-card">
-    <img src="<%=image_path('banner')%>">
+    <%= cl_image_tag cocktail.photo, crop: :fill%>
     <div class="cocktail-card-infos">
       <div>
         <h3><%=link_to cocktail.name, cocktail_path(cocktail) %></h3>

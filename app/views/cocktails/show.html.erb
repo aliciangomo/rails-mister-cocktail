@@ -1,5 +1,8 @@
 <div class="container">
-  <h1><%= @cocktail.name %></h1>
+  <div class="cocktail-banner">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+
 
   <div class="ingredients">
     <h2>Ingredients:</h2>
@@ -22,6 +25,7 @@
   <div class="dose-form">
     <p>Would you like to modify the ingredients of this cocktail?</p>
     </div>
+    <!-- post cocktails/:id/doses/ -->
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
       <%= f.association :ingredient %>

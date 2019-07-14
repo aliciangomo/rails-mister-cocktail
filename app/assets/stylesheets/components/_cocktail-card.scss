@@ -5,10 +5,11 @@
   border-radius: 7px;
 }
 
-.cocktail-card > cl_image_tag {
-  height: 100%;
+.cocktail-card > img {
+  height: 200px;
   width: 100%;
   object-fit: cover;
+  overflow: hidden;
 }
 
 .cocktail-card h3 {

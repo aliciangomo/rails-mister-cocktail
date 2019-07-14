@@ -1,12 +1,11 @@
 .banner-cocktail {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>');
-}
-
-.banner-cocktail {
+  overflow: hidden;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 7px;
   background-size: cover;
   background-position: center;
-  padding: 100px 0 60px 20px;
-  // padding-left: 20px;
+  padding: 120px 0 140px 20px;
+  margin: 20px 0px 20px 0px;
 }
 
 .banner-cocktail h1 {

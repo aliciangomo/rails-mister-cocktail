@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
+}
+
+.navbar .btn .btn-outline-success {
+  background-color: $lightgrey;
+  margin-right: 20px
+}
+
+.navbar .btn a {
+  color: $gray;
+}
+
+.navbar .btn a:active {
+  color: $gray;
+  text-decoration: underline;
 }

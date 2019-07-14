@@ -1,48 +1,57 @@
-<div class="container">
-  <div class="cocktail-banner">
-    <h1><%= @cocktail.name %></h1>
-  </div>
 
+ <!--  <div class="container"> -->
+  <div class="all row justify-content-around">
 
-  <div class="ingredients">
-    <h2>Ingredients:</h2>
-    <ul>
-    <% @cocktail.ingredients.each do |ingredient| %>
-    <li><%=ingredient.name %></li>
-    <% end %>
-    </ul>
-  </div>
-
-  <div class="reviews">
-    <h2>Reviews:</h2>
-    <ul>
-    <% @cocktail.reviews.each do |review| %>
-    <li><%=review.rating%> - <%= review.content %></li>
-    <% end %>
-    </ul>
-  </div>
-
-  <div class="dose-form">
-    <p>Would you like to modify the ingredients of this cocktail?</p>
+    <div class="banner-cocktail col-sm-12 col-lg-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+      <h1><%= @cocktail.name %></h1>
     </div>
-    <!-- post cocktails/:id/doses/ -->
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient %>
-      <%= f.submit class: "btn btn-primary" %>
-    <% end %>
+
+    <div class="content col-sm-12 col-lg-8">
+    <div class="doses row justify-content-around">
+
+      <div class="ingredients col-sm-12 col-lg-4">
+        <h4>Ingredients:</h4>
+        <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li> <%=dose.ingredient.name %><%= dose.description%><%= link_to 'Delete', dose_path(dose,
+                  method: 'delete',
+                  data: {confirm: "Are you sure?"} %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+
+       <div class="dose-form col-sm-12 col-lg-8">
+        <p>Would you like to add/modify the ingredients of this cocktail?</p>
+        <!-- post cocktails/:id/doses/ -->
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description %>
+          <%= f.association :ingredient %>
+          <%= f.submit class: "btn btn-secondary" %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="reviews row justify-content-around">
+
+      <div class="content col-sm-12 col-lg-4">
+        <h4>Reviews:</h4>
+        <ul>
+        <% @cocktail.reviews.each do |review| %>
+        <li>  <%=review.rating%> - <%= review.content %></li>
+        <% end %>
+        </ul>
+      </div>
+
+      <div class="review-form col-sm-12 col-lg-8">
+        <p>What did you think of this cocktail (rate 1-5)?</p>
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.submit class: "btn btn-secondary" %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-  <div class="review-form">
-    <p>What did you think of this cocktail (rate 1-5)?</p>
-    </div>
-    <%= simple_form_for [@cocktail, @review] do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating %>
-      <%= f.submit class: "btn btn-primary" %>
-    <% end %>
-    </div>
-  </div>
-
-</div>
+<!-- </div> -->
